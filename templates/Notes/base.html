@@ -1,0 +1,35 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+		      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="{% static 'Notes/style.css' %}">
+		{% block title %}{% endblock %}
+	</head>
+	<body>
+		<div class="Container">
+
+			<header>
+				<div id="heading">
+					<a href="{% url 'Notes:index' %}">Notes</a>
+				</div>
+				<div id="navs">
+					<button id="home"><a href="{% url 'Notes:index' %}">Home</a></button>
+					<button id="about"><a href="">About</a></button>
+					<button id="contact"><a href="">Contact Us</a></button>
+				</div>
+			</header>
+
+			<div id="page">
+				{% block title_data %}
+
+				{% endblock %}
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="{% static 'Notes/main.js' %}"></script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+{% extends "Notes/base.html" %}
+
+{% block title %}
+	<title>Notes</title>
+{% endblock %}
+
+{% block index %}
+	<div id="form">
+		<form method="post" id="note_form">
+			{% csrf_token %}
+			{% if form %}
+				{{ form.as_p }}
+			{% endif %}
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+{% endblock %}
+
+
+{% block titles %}
+	{% if note %}
+		{% for n in note %}
+			<div id="title">
+				{{ n.Title }}
+			</div>
+		{% endfor %}
+	{% endif %}
+{% endblock %}
+
+{% block title_data %}
+	{% if note %}
+		{% for n in note %}
+			<div id="title_data">
+				<div id="data_title">{{ n.Title }}</div>
+				<div id="data_date">{{ n.Date }}</div>
+				<div id="data_data">{{ n.Data }}</div>
+			</div>
+		{% endfor %}
+	{% endif %}
+{% endblock %}
